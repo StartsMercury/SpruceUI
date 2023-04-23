@@ -13,7 +13,7 @@ import dev.lambdaurora.spruceui.util.ColorUtil;
 import dev.lambdaurora.spruceui.widget.SpruceWidget;
 import net.minecraft.unmapped.C_sedilmty;
 
-public class SimpleColorBackground /* extends DrawableHelper */ implements Background {
+public class SimpleColorBackground implements Background {
 	private final int color;
 
 	public SimpleColorBackground(int color) {

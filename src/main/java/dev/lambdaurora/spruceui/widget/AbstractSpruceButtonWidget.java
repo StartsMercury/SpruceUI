@@ -154,7 +154,6 @@ public abstract class AbstractSpruceButtonWidget extends AbstractSpruceWidget im
 	@Override
 	protected void renderBackground(C_sedilmty c_sedilmty, int mouseX, int mouseY, float delta) {
 		RenderSystem.setShaderColor(1.f, 1.f, 1.f, this.getAlpha());
-//		RenderSystem.setShaderTexture(0, ClickableWidget.WIDGETS_TEXTURE);
 		RenderSystem.enableBlend();
 		RenderSystem.defaultBlendFunc();
 		RenderSystem.enableDepthTest();

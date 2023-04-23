@@ -30,7 +30,7 @@ import java.util.function.LongConsumer;
  * @version 3.3.0
  * @since 1.0.0
  */
-public class Tooltip /* extends DrawableHelper */ implements SprucePositioned {
+public class Tooltip implements SprucePositioned {
 	private static final Queue<Tooltip> TOOLTIPS = Queues.newConcurrentLinkedQueue();
 	private static boolean delayed = false;
 	private final int x;

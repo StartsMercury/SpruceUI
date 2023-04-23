@@ -28,7 +28,7 @@ import org.jetbrains.annotations.Nullable;
  * @version 3.3.0
  * @since 2.0.0
  */
-public abstract class AbstractSpruceWidget /* extends DrawableHelper */ implements SpruceWidget {
+public abstract class AbstractSpruceWidget implements SpruceWidget {
 	protected final MinecraftClient client = MinecraftClient.getInstance();
 	protected final Position position;
 	private boolean visible;

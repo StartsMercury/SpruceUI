@@ -94,11 +94,11 @@ public class SpruceCheckboxWidget extends AbstractSpruceBooleanButtonWidget {
 		if (this.getValue()) {
 			if (this.colored)
 				RenderSystem.setShaderColor(0.f, 1.f, 0.f, this.alpha);
-			c_sedilmty.method_25290(TEXTURE /* NOTE inferred from renderBackground */, this.getX(), this.getY(), 0.f, 40.f, this.getHeight(), this.getHeight(), 64, 64);
+			c_sedilmty.method_25290(TEXTURE, this.getX(), this.getY(), 0.f, 40.f, this.getHeight(), this.getHeight(), 64, 64);
 		} else if (this.showCross) {
 			if (this.colored)
 				RenderSystem.setShaderColor(1.f, 0.f, 0.f, this.alpha);
-			c_sedilmty.method_25290(TEXTURE /* NOTE inferred from renderBackground */, this.getX(), this.getY(), 0.f, 20.f, this.getHeight(), this.getHeight(), 64, 64);
+			c_sedilmty.method_25290(TEXTURE, this.getX(), this.getY(), 0.f, 20.f, this.getHeight(), this.getHeight(), 64, 64);
 		}
 
 		if (this.showMessage) {
@@ -112,7 +112,6 @@ public class SpruceCheckboxWidget extends AbstractSpruceBooleanButtonWidget {
 	protected void renderBackground(C_sedilmty c_sedilmty, int mouseX, int mouseY, float delta) {
 		RenderSystem.enableDepthTest();
 		RenderSystem.setShaderColor(1.f, 1.f, 1.f, this.alpha);
-//		RenderSystem.setShaderTexture(0, TEXTURE);
 		RenderSystem.enableBlend();
 		RenderSystem.defaultBlendFunc();
 		RenderSystem.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);
