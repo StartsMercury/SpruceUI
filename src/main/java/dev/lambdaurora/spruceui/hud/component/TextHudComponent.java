@@ -11,7 +11,6 @@ package dev.lambdaurora.spruceui.hud.component;
 
 import dev.lambdaurora.spruceui.hud.HudComponent;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.text.Text;
 import net.minecraft.unmapped.C_sedilmty;
 import net.minecraft.util.Identifier;

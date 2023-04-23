@@ -17,7 +17,6 @@ import com.mojang.blaze3d.vertex.VertexFormats;
 import dev.lambdaurora.spruceui.util.ColorUtil;
 import dev.lambdaurora.spruceui.widget.SpruceWidget;
 import net.minecraft.client.render.*;
-import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.unmapped.C_sedilmty;
 
 import java.util.Arrays;

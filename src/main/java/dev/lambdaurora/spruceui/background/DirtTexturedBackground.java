@@ -11,7 +11,6 @@ package dev.lambdaurora.spruceui.background;
 
 import dev.lambdaurora.spruceui.util.RenderUtil;
 import dev.lambdaurora.spruceui.widget.SpruceWidget;
-import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.unmapped.C_sedilmty;
 
 public record DirtTexturedBackground(int red, int green, int blue, int alpha) implements Background {
