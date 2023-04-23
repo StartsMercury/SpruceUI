@@ -21,7 +21,7 @@ import org.jetbrains.annotations.NotNull;
  * @version 3.2.1
  * @since 1.2.0
  */
-public abstract class HudComponent /* extends DrawableHelper */ implements Identifiable {
+public abstract class HudComponent implements Identifiable {
 	protected final Identifier identifier;
 	protected boolean enabled = true;
 	protected int x;

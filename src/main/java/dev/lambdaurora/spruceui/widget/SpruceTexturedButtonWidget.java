@@ -74,11 +74,10 @@ public class SpruceTexturedButtonWidget extends SpruceButtonWidget {
 		}
 
 		RenderSystem.setShaderColor(1.f, 1.f, 1.f, this.getAlpha());
-//		RenderSystem.setShaderTexture(0, this.texture);
 		RenderSystem.enableDepthTest();
 		c_sedilmty.method_25291(this.texture,
 				this.getX(), this.getY(),
-				0, /* NOTE followed method_25302's usage */
+				0,
 				this.u, v,
 				this.getWidth(), this.getHeight(),
 				this.textureWidth, this.textureHeight
