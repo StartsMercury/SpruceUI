@@ -17,7 +17,6 @@ import dev.lambdaurora.spruceui.border.EmptyBorder;
 import dev.lambdaurora.spruceui.widget.SpruceWidget;
 import dev.lambdaurora.spruceui.widget.WithBackground;
 import dev.lambdaurora.spruceui.widget.WithBorder;
-import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.unmapped.C_sedilmty;
 
 import java.util.ArrayList;

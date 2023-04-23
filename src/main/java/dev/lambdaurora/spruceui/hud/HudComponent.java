@@ -10,7 +10,6 @@
 package dev.lambdaurora.spruceui.hud;
 
 import dev.lambdaurora.spruceui.util.Identifiable;
-import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 import net.minecraft.unmapped.C_sedilmty;
 import org.jetbrains.annotations.NotNull;
