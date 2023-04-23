@@ -18,6 +18,7 @@ import dev.lambdaurora.spruceui.widget.SpruceWidget;
 import dev.lambdaurora.spruceui.widget.WithBackground;
 import dev.lambdaurora.spruceui.widget.WithBorder;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.unmapped.C_sedilmty;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -78,14 +79,14 @@ public class SpruceContainerWidget extends AbstractSpruceParentWidget<SpruceWidg
 	/* Rendering */
 
 	@Override
-	protected void renderWidget(MatrixStack matrices, int mouseX, int mouseY, float delta) {
-		this.forEach(child -> child.render(matrices, mouseX, mouseY, delta));
-		this.getBorder().render(matrices, this, mouseX, mouseY, delta);
+	protected void renderWidget(C_sedilmty c_sedilmty, int mouseX, int mouseY, float delta) {
+		this.forEach(child -> child.render(c_sedilmty, mouseX, mouseY, delta));
+		this.getBorder().render(c_sedilmty, this, mouseX, mouseY, delta);
 	}
 
 	@Override
-	protected void renderBackground(MatrixStack matrices, int mouseX, int mouseY, float delta) {
-		this.getBackground().render(matrices, this, 0, mouseX, mouseY, delta);
+	protected void renderBackground(C_sedilmty c_sedilmty, int mouseX, int mouseY, float delta) {
+		this.getBackground().render(c_sedilmty, this, 0, mouseX, mouseY, delta);
 	}
 
 	public interface ChildrenFactory {

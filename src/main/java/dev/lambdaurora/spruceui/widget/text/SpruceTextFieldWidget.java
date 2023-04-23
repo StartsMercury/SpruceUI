@@ -29,6 +29,7 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.text.OrderedText;
 import net.minecraft.text.Style;
 import net.minecraft.text.Text;
+import net.minecraft.unmapped.C_sedilmty;
 import net.minecraft.util.Util;
 import net.minecraft.util.math.MathHelper;
 import org.jetbrains.annotations.Nullable;
@@ -415,11 +416,11 @@ public class SpruceTextFieldWidget extends AbstractSpruceTextInputWidget impleme
 	/* Rendering */
 
 	@Override
-	protected void renderWidget(MatrixStack matrices, int mouseX, int mouseY, float delta) {
-		super.renderWidget(matrices, mouseX, mouseY, delta);
+	protected void renderWidget(C_sedilmty c_sedilmty, int mouseX, int mouseY, float delta) {
+		super.renderWidget(c_sedilmty, mouseX, mouseY, delta);
 
-		this.drawText(matrices);
-		this.drawCursor(matrices);
+		this.drawText(c_sedilmty);
+		this.drawCursor(c_sedilmty);
 
 		if (!this.dragging && this.editingTime == 0) {
 			Tooltip.queueFor(this, mouseX, mouseY, this.tooltipTicks,
@@ -432,9 +433,9 @@ public class SpruceTextFieldWidget extends AbstractSpruceTextInputWidget impleme
 	/**
 	 * Draws the text of the text area.
 	 *
-	 * @param matrices the matrices
+	 * @param c_sedilmty the c_sedilmty
 	 */
-	protected void drawText(MatrixStack matrices) {
+	protected void drawText(C_sedilmty c_sedilmty) {
 		int textColor = this.getTextColor();
 		int x = this.getX() + 4;
 		int y = this.getY() + this.getHeight() / 2 - 4;
@@ -442,7 +443,7 @@ public class SpruceTextFieldWidget extends AbstractSpruceTextInputWidget impleme
 		var displayedText = this.client.textRenderer.trimToWidth(this.text.substring(this.firstCharacterIndex),
 				this.getInnerWidth());
 
-		this.client.textRenderer.drawWithShadow(matrices, this.renderTextProvider.apply(displayedText, this.firstCharacterIndex),
+		c_sedilmty.method_35720(this.client.textRenderer, this.renderTextProvider.apply(displayedText, this.firstCharacterIndex),
 				x, y, textColor);
 		this.drawSelection(displayedText, y);
 	}
@@ -487,16 +488,16 @@ public class SpruceTextFieldWidget extends AbstractSpruceTextInputWidget impleme
 	/**
 	 * Draws the cursor.
 	 *
-	 * @param matrices the matrices
+	 * @param c_sedilmty the c_sedilmty
 	 */
-	protected void drawCursor(MatrixStack matrices) {
+	protected void drawCursor(C_sedilmty c_sedilmty) {
 		if (!this.isFocused())
 			return;
 
 		int cursorY = this.getY() + this.getHeight() / 2 - 4;
 
 		if (this.text.isEmpty()) {
-			drawTextWithShadow(matrices, this.client.textRenderer, Text.literal("_"),
+			c_sedilmty.method_27534(this.client.textRenderer, Text.literal("_"),
 					this.getX() + 4, cursorY, ColorUtil.TEXT_COLOR);
 			return;
 		}
@@ -509,9 +510,9 @@ public class SpruceTextFieldWidget extends AbstractSpruceTextInputWidget impleme
 		);
 
 		if (this.cursor.column - this.firstCharacterIndex < cursorLine.length())
-			fill(matrices, cursorX - 1, cursorY - 1, cursorX, cursorY + 9, ColorUtil.TEXT_COLOR);
+			c_sedilmty.method_25294(cursorX - 1, cursorY - 1, cursorX, cursorY + 9, ColorUtil.TEXT_COLOR);
 		else
-			this.client.textRenderer.drawWithShadow(matrices, "_", cursorX, cursorY, ColorUtil.TEXT_COLOR);
+			c_sedilmty.method_25303(this.client.textRenderer, "_", cursorX, cursorY, ColorUtil.TEXT_COLOR);
 	}
 
 	/* Narration */

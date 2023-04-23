@@ -13,6 +13,7 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import dev.lambdaurora.spruceui.Position;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.text.Text;
+import net.minecraft.unmapped.C_sedilmty;
 import net.minecraft.util.Identifier;
 
 /**
@@ -61,23 +62,24 @@ public class SpruceTexturedButtonWidget extends SpruceButtonWidget {
 	/* Rendering */
 
 	@Override
-	protected void renderButton(MatrixStack matrices, int mouseX, int mouseY, float delta) {
+	protected void renderButton(C_sedilmty c_sedilmty, int mouseX, int mouseY, float delta) {
 		if (this.showMessage)
-			super.renderButton(matrices, mouseX, mouseY, delta);
+			super.renderButton(c_sedilmty, mouseX, mouseY, delta);
 	}
 
 	@Override
-	protected void renderBackground(MatrixStack matrices, int mouseX, int mouseY, float delta) {
+	protected void renderBackground(C_sedilmty c_sedilmty, int mouseX, int mouseY, float delta) {
 		int v = this.v;
 		if (this.isFocusedOrHovered()) {
 			v += this.hoveredVOffset;
 		}
 
 		RenderSystem.setShaderColor(1.f, 1.f, 1.f, this.getAlpha());
-		RenderSystem.setShaderTexture(0, this.texture);
+//		RenderSystem.setShaderTexture(0, this.texture);
 		RenderSystem.enableDepthTest();
-		drawTexture(matrices,
+		c_sedilmty.method_25291(this.texture,
 				this.getX(), this.getY(),
+				0, /* NOTE followed method_25302's usage */
 				this.u, v,
 				this.getWidth(), this.getHeight(),
 				this.textureWidth, this.textureHeight

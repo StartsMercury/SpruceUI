@@ -11,6 +11,7 @@ package dev.lambdaurora.spruceui.border;
 
 import dev.lambdaurora.spruceui.widget.SpruceWidget;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.unmapped.C_sedilmty;
 
 /**
  * Represents an empty border.
@@ -26,7 +27,7 @@ public final class EmptyBorder implements Border {
 	}
 
 	@Override
-	public void render(MatrixStack matrices, SpruceWidget widget, int mouseX, int mouseY, float delta) {
+	public void render(C_sedilmty c_sedilmty, SpruceWidget widget, int mouseX, int mouseY, float delta) {
 	}
 
 	@Override

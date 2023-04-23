@@ -17,6 +17,7 @@ import net.fabricmc.api.Environment;
 import net.minecraft.client.gui.screen.narration.NarrationMessageBuilder;
 import net.minecraft.client.gui.widget.ClickableWidget;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.unmapped.C_sedilmty;
 
 /**
  * Represents a vanilla button wrapper for SpruceUI's own button widgets.
@@ -35,13 +36,13 @@ public class VanillaButtonWrapper extends ClickableWidget implements SpruceEleme
 	}
 
 	@Override
-	public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
+	public void render(C_sedilmty c_sedilmty, int mouseX, int mouseY, float delta) {
 		this.widget.getPosition().setRelativeY(this.getY());
-		this.widget.render(matrices, mouseX, mouseY, delta);
+		this.widget.render(c_sedilmty, mouseX, mouseY, delta);
 	}
 
 	@Override
-	public void drawWidget(MatrixStack matrices, int mouseX, int mouseY, float delta) {}
+	public void drawWidget(C_sedilmty c_sedilmty, int mouseX, int mouseY, float delta) {}
 
 	@Override
 	public boolean mouseClicked(double mouseX, double mouseY, int button) {

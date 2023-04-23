@@ -22,6 +22,7 @@ import dev.lambdaurora.spruceui.widget.container.SpruceEntryListWidget;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.text.OrderedText;
 import net.minecraft.text.Text;
+import net.minecraft.unmapped.C_sedilmty;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -151,14 +152,14 @@ public class SpruceTabbedWidget extends AbstractSpruceParentWidget<SpruceWidget>
 	/* Render */
 
 	@Override
-	protected void renderWidget(MatrixStack matrices, int mouseX, int mouseY, float delta) {
+	protected void renderWidget(C_sedilmty c_sedilmty, int mouseX, int mouseY, float delta) {
 		if (this.title != null) {
-			drawCenteredText(matrices, this.client.textRenderer, this.title, this.getX() + this.list.getWidth() / 2,
+			c_sedilmty.method_27534(this.client.textRenderer, this.title, this.getX() + this.list.getWidth() / 2,
 					this.getY() + 6, 0xffffffff);
 		}
-		this.list.render(matrices, mouseX, mouseY, delta);
+		this.list.render(c_sedilmty, mouseX, mouseY, delta);
 		if (this.list.getCurrentTab() != null)
-			this.list.getCurrentTab().container.render(matrices, mouseX, mouseY, delta);
+			this.list.getCurrentTab().container.render(c_sedilmty, mouseX, mouseY, delta);
 	}
 
 	public static abstract class Entry extends SpruceEntryListWidget.Entry implements WithBackground {
@@ -198,8 +199,8 @@ public class SpruceTabbedWidget extends AbstractSpruceParentWidget<SpruceWidget>
 		/* Rendering */
 
 		@Override
-		protected void renderBackground(MatrixStack matrices, int mouseX, int mouseY, float delta) {
-			this.getBackground().render(matrices, this, 0, mouseX, mouseY, delta);
+		protected void renderBackground(C_sedilmty c_sedilmty, int mouseX, int mouseY, float delta) {
+			this.getBackground().render(c_sedilmty, this, 0, mouseX, mouseY, delta);
 		}
 	}
 
@@ -253,31 +254,31 @@ public class SpruceTabbedWidget extends AbstractSpruceParentWidget<SpruceWidget>
 		/* Render */
 
 		@Override
-		protected void renderWidget(MatrixStack matrices, int mouseX, int mouseY, float delta) {
+		protected void renderWidget(C_sedilmty c_sedilmty, int mouseX, int mouseY, float delta) {
 			int y = this.getY() + 4;
 			for (var it = this.title.iterator(); it.hasNext(); y += 9) {
 				var line = it.next();
-				this.client.textRenderer.draw(matrices, line, this.getX() + 4, y, 0xffffff);
+				c_sedilmty.method_35720(this.client.textRenderer, line, this.getX() + 4, y, 0xffffff);
 			}
 			if (this.description != null) {
 				y += 4;
 				for (var it = this.description.iterator(); it.hasNext(); y += 9) {
 					var line = it.next();
-					this.client.textRenderer.draw(matrices, line, this.getX() + 8, y, 0xffffff);
+					c_sedilmty.method_35720(this.client.textRenderer, line, this.getX() + 8, y, 0xffffff);
 				}
 			}
 		}
 
 		@Override
-		protected void renderBackground(MatrixStack matrices, int mouseX, int mouseY, float delta) {
-			super.renderBackground(matrices, mouseX, mouseY, delta);
+		protected void renderBackground(C_sedilmty c_sedilmty, int mouseX, int mouseY, float delta) {
+			super.renderBackground(c_sedilmty, mouseX, mouseY, delta);
 			if (this.isFocused() && this.parent.isFocused())
-				fill(matrices, this.getX(), this.getY(),
+				c_sedilmty.method_25294(this.getX(), this.getY(),
 						this.getX() + this.getWidth(),
 						this.getY() + this.getHeight() - 4,
 						0x2fffffff);
 			else if (this.selected || this.isMouseHovered())
-				fill(matrices, this.getX(), this.getY(), this.getX() + this.getWidth(),
+				c_sedilmty.method_25294(this.getX(), this.getY(), this.getX() + this.getWidth(),
 						this.getY() + this.getHeight() - 4,
 						0x1affffff);
 		}
@@ -329,8 +330,8 @@ public class SpruceTabbedWidget extends AbstractSpruceParentWidget<SpruceWidget>
 		/* Rendering */
 
 		@Override
-		protected void renderWidget(MatrixStack matrices, int mouseX, int mouseY, float delta) {
-			this.separatorWidget.render(matrices, mouseX, mouseY, delta);
+		protected void renderWidget(C_sedilmty c_sedilmty, int mouseX, int mouseY, float delta) {
+			this.separatorWidget.render(c_sedilmty, mouseX, mouseY, delta);
 		}
 
 		@Override

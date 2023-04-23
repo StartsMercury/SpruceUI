@@ -20,6 +20,7 @@ import dev.lambdaurora.spruceui.widget.WithBackground;
 import dev.lambdaurora.spruceui.widget.WithBorder;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.text.Text;
+import net.minecraft.unmapped.C_sedilmty;
 
 /**
  * Represents a text input widget.
@@ -171,13 +172,13 @@ public abstract class AbstractSpruceTextInputWidget extends AbstractSpruceWidget
 	/* Rendering */
 
 	@Override
-	protected void renderWidget(MatrixStack matrices, int mouseX, int mouseY, float delta) {
-		this.getBorder().render(matrices, this, mouseX, mouseY, delta);
+	protected void renderWidget(C_sedilmty c_sedilmty, int mouseX, int mouseY, float delta) {
+		this.getBorder().render(c_sedilmty, this, mouseX, mouseY, delta);
 	}
 
 	@Override
-	protected void renderBackground(MatrixStack matrices, int mouseX, int mouseY, float delta) {
-		this.getBackground().render(matrices, this, 0, mouseX, mouseY, delta);
+	protected void renderBackground(C_sedilmty c_sedilmty, int mouseX, int mouseY, float delta) {
+		this.getBackground().render(c_sedilmty, this, 0, mouseX, mouseY, delta);
 	}
 
 	/* Narration */

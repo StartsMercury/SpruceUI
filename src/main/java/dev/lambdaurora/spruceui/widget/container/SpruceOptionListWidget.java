@@ -19,6 +19,7 @@ import net.minecraft.client.gui.screen.narration.NarrationMessageBuilder;
 import net.minecraft.client.gui.screen.narration.NarrationPart;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.text.Text;
+import net.minecraft.unmapped.C_sedilmty;
 import org.jetbrains.annotations.Nullable;
 import org.lwjgl.glfw.GLFW;
 
@@ -218,8 +219,8 @@ public class SpruceOptionListWidget extends SpruceEntryListWidget<SpruceOptionLi
 		/* Rendering */
 
 		@Override
-		protected void renderWidget(MatrixStack matrices, int mouseX, int mouseY, float delta) {
-			this.forEach(widget -> widget.render(matrices, mouseX, mouseY, delta));
+		protected void renderWidget(C_sedilmty c_sedilmty, int mouseX, int mouseY, float delta) {
+			this.forEach(widget -> widget.render(c_sedilmty, mouseX, mouseY, delta));
 		}
 
 		/* Narration */

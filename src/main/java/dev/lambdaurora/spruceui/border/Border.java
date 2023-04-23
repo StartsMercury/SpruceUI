@@ -11,6 +11,7 @@ package dev.lambdaurora.spruceui.border;
 
 import dev.lambdaurora.spruceui.widget.SpruceWidget;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.unmapped.C_sedilmty;
 
 /**
  * Represents a border to draw around a widget.
@@ -20,7 +21,7 @@ import net.minecraft.client.util.math.MatrixStack;
  * @since 2.0.0
  */
 public interface Border {
-	void render(MatrixStack matrices, SpruceWidget widget, int mouseX, int mouseY, float delta);
+	void render(C_sedilmty c_sedilmty, SpruceWidget widget, int mouseX, int mouseY, float delta);
 
 	/**
 	 * Returns the thickness of the border.

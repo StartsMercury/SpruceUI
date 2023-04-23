@@ -23,6 +23,7 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.Text;
+import net.minecraft.unmapped.C_sedilmty;
 import org.lwjgl.glfw.GLFW;
 
 import java.util.function.BooleanSupplier;
@@ -114,22 +115,22 @@ public abstract class SpruceHandledScreen<T extends ScreenHandler> extends Handl
 	/* Render */
 
 	@Override
-	public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
+	public void render(C_sedilmty c_sedilmty, int mouseX, int mouseY, float delta) {
 		ScissorManager.pushScaleFactor(this.scaleFactor);
-		super.render(matrices, mouseX, mouseY, delta);
-		this.renderWidgets(matrices, mouseX, mouseY, delta);
-		this.renderTitle(matrices, mouseX, mouseY, delta);
-		Tooltip.renderAll(this, matrices);
+		super.render(c_sedilmty, mouseX, mouseY, delta);
+		this.renderWidgets(c_sedilmty, mouseX, mouseY, delta);
+		this.renderTitle(c_sedilmty, mouseX, mouseY, delta);
+		Tooltip.renderAll(this, c_sedilmty);
 		ScissorManager.popScaleFactor();
 	}
 
-	public void renderTitle(MatrixStack matrices, int mouseX, int mouseY, float delta) {
+	public void renderTitle(C_sedilmty c_sedilmty, int mouseX, int mouseY, float delta) {
 	}
 
-	public void renderWidgets(MatrixStack matrices, int mouseX, int mouseY, float delta) {
+	public void renderWidgets(C_sedilmty c_sedilmty, int mouseX, int mouseY, float delta) {
 		for (var element : this.children()) {
 			if (element instanceof Drawable drawable)
-				drawable.render(matrices, mouseX, mouseY, delta);
+				drawable.render(c_sedilmty, mouseX, mouseY, delta);
 		}
 	}
 }

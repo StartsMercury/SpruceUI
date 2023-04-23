@@ -11,6 +11,7 @@ package dev.lambdaurora.spruceui.background;
 
 import dev.lambdaurora.spruceui.widget.SpruceWidget;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.unmapped.C_sedilmty;
 
 /**
  * Represents a background which can be rendered on a widget.
@@ -20,5 +21,5 @@ import net.minecraft.client.util.math.MatrixStack;
  * @since 2.0.0
  */
 public interface Background {
-	void render(MatrixStack matrices, SpruceWidget widget, int vOffset, int mouseX, int mouseY, float delta);
+	void render(C_sedilmty c_sedilmty, SpruceWidget widget, int vOffset, int mouseX, int mouseY, float delta);
 }

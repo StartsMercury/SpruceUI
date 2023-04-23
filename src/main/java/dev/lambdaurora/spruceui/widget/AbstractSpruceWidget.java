@@ -12,13 +12,13 @@ package dev.lambdaurora.spruceui.widget;
 import dev.lambdaurora.spruceui.Position;
 import dev.lambdaurora.spruceui.navigation.NavigationDirection;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.DrawableHelper;
 import net.minecraft.client.gui.screen.narration.NarrationMessageBuilder;
 import net.minecraft.client.gui.screen.narration.NarrationPart;
 import net.minecraft.client.sound.PositionedSoundInstance;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
+import net.minecraft.unmapped.C_sedilmty;
 import net.minecraft.util.Util;
 import org.jetbrains.annotations.Nullable;
 
@@ -29,7 +29,7 @@ import org.jetbrains.annotations.Nullable;
  * @version 3.3.0
  * @since 2.0.0
  */
-public abstract class AbstractSpruceWidget extends DrawableHelper implements SpruceWidget {
+public abstract class AbstractSpruceWidget /* extends DrawableHelper */ implements SpruceWidget {
 	protected final MinecraftClient client = MinecraftClient.getInstance();
 	protected final Position position;
 	private boolean visible;
@@ -250,7 +250,7 @@ public abstract class AbstractSpruceWidget extends DrawableHelper implements Spr
 	/* Rendering */
 
 	@Override
-	public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
+	public void render(C_sedilmty c_sedilmty, int mouseX, int mouseY, float delta) {
 		if (this.isVisible()) {
 			this.hovered = mouseX >= this.getX() && mouseY >= this.getY()
 					&& mouseX < this.getX() + this.getWidth() && mouseY < this.getY() + this.getHeight();
@@ -261,8 +261,8 @@ public abstract class AbstractSpruceWidget extends DrawableHelper implements Spr
 				}
 			}
 
-			this.renderBackground(matrices, mouseX, mouseY, delta);
-			this.renderWidget(matrices, mouseX, mouseY, delta);
+			this.renderBackground(c_sedilmty, mouseX, mouseY, delta);
+			this.renderWidget(c_sedilmty, mouseX, mouseY, delta);
 
 			this.wasHovered = this.isMouseHovered();
 		} else {
@@ -273,22 +273,22 @@ public abstract class AbstractSpruceWidget extends DrawableHelper implements Spr
 	/**
 	 * Renders the widget.
 	 *
-	 * @param matrices the matrix stack
+	 * @param c_sedilmty the matrix stack
 	 * @param mouseX the mouse X-coordinate
 	 * @param mouseY the mouse Y-coordinate
 	 * @param delta the tick delta
 	 */
-	protected abstract void renderWidget(MatrixStack matrices, int mouseX, int mouseY, float delta);
+	protected abstract void renderWidget(C_sedilmty c_sedilmty, int mouseX, int mouseY, float delta);
 
 	/**
 	 * Renders the background of the widget.
 	 *
-	 * @param matrices the matrix stack
+	 * @param c_sedilmty the matrix stack
 	 * @param mouseX the mouse X-coordinate
 	 * @param mouseY the mouse Y-coordinate
 	 * @param delta the tick delta
 	 */
-	protected void renderBackground(MatrixStack matrices, int mouseX, int mouseY, float delta) {
+	protected void renderBackground(C_sedilmty c_sedilmty, int mouseX, int mouseY, float delta) {
 	}
 
 	/* Sound */
