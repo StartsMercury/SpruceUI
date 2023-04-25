@@ -8,9 +8,9 @@
     "LambdAurora"
   ],
   "contact": {
-    "homepage": "https://github.com/LambdAurora/SpruceUI",
-    "sources": "https://github.com/LambdAurora/SpruceUI.git",
-    "issues": "https://github.com/LambdAurora/SpruceUI/issues"
+    "homepage": "https://github.com/StartsMercury/SpruceUI",
+    "sources": "https://github.com/StartsMercury/SpruceUI.git",
+    "issues": "https://github.com/StartsMercury/SpruceUI/issues"
   },
   "license": "MIT",
   "icon": "assets/spruceui/icon.png",
