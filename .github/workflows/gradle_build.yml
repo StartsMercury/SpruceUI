@@ -9,35 +9,6 @@ on:
       - '*'
 
 jobs:
-  build-quilt-mappings:
-    strategy:
-      matrix:
-        java: [17, 19]
-    runs-on: ubuntu-latest
-    container:
-      image: eclipse-temurin:${{ matrix.java }}
-      options: --user root
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          repository: 'QuiltMC/quilt-mappings'
-          ref: '23w17a'
-      - name: Set up JDK
-        uses: actions/setup-java@v3
-        with:
-          java-version: ${{ matrix.java }}
-          distribution: temurin
-      - uses: gradle/wrapper-validation-action@v1
-      - run: ./gradlew publishToMavenLocal --stacktrace
-      - name: Build artifacts
-        if: ${{ matrix.java == 17 }}
-        continue-on-error: true
-        uses: actions/upload-artifact@v3
-        with:
-          name: Quilt Mappings Artifacts
-          path: ~/.m2/repository/org/quiltmc/quilt-mappings
-          retention-days: 1
-
   build:
     strategy:
       matrix:
@@ -52,11 +23,6 @@ jobs:
         with:
           java-version: ${{ matrix.java }}
           distribution: 'temurin'
-
-      - uses: actions/upload-artifact@v2
-        with:
-          name: Quilt Mappings Artifacts
-          path: ~/.m2/repository/org/quiltmc/quilt-mappings
 
       - name: Build with Gradle
         uses: gradle/gradle-build-action@v2
