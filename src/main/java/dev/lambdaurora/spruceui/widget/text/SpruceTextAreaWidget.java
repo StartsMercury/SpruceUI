@@ -22,10 +22,10 @@ import dev.lambdaurora.spruceui.util.MultilineText;
 import net.minecraft.SharedConstants;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.TextRenderer;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.render.GameRenderer;
 import net.minecraft.text.Text;
-import net.minecraft.unmapped.C_sedilmty;
 import net.minecraft.util.math.MathHelper;
 import org.jetbrains.annotations.Nullable;
 import org.lwjgl.glfw.GLFW;
@@ -445,19 +445,19 @@ public class SpruceTextAreaWidget extends AbstractSpruceTextInputWidget {
 	/* Rendering */
 
 	@Override
-	protected void renderWidget(C_sedilmty c_sedilmty, int mouseX, int mouseY, float delta) {
-		super.renderWidget(c_sedilmty, mouseX, mouseY, delta);
+	protected void renderWidget(GuiGraphics graphics, int mouseX, int mouseY, float delta) {
+		super.renderWidget(graphics, mouseX, mouseY, delta);
 
-		this.drawText(c_sedilmty);
-		this.drawCursor(c_sedilmty);
+		this.drawText(graphics);
+		this.drawCursor(graphics);
 	}
 
 	/**
 	 * Draws the text of the text area.
 	 *
-	 * @param c_sedilmty the c_sedilmty
+	 * @param graphics the graphics
 	 */
-	protected void drawText(C_sedilmty c_sedilmty) {
+	protected void drawText(GuiGraphics graphics) {
 		int length = Math.min(this.lines.size(), this.displayedLines);
 
 		int textColor = this.getTextColor();
@@ -470,8 +470,8 @@ public class SpruceTextAreaWidget extends AbstractSpruceTextInputWidget {
 				continue;
 			if (line.endsWith("\n")) line = line.substring(0, line.length() - 1);
 
-			c_sedilmty.method_27535(this.textRenderer, Text.literal(line), textX, lineY, textColor);
-			this.drawSelection(c_sedilmty, line, lineY, row);
+			graphics.drawShadowedText(this.textRenderer, Text.literal(line), textX, lineY, textColor);
+			this.drawSelection(graphics, line, lineY, row);
 
 			lineY += this.textRenderer.fontHeight;
 		}
@@ -480,12 +480,12 @@ public class SpruceTextAreaWidget extends AbstractSpruceTextInputWidget {
 	/**
 	 * Draws the selection over the text.
 	 *
-	 * @param c_sedilmty the c_sedilmty
+	 * @param graphics the graphics
 	 * @param line the current line
 	 * @param lineY the line Y-coordinates
 	 * @param row the row number
 	 */
-	protected void drawSelection(C_sedilmty c_sedilmty, String line, int lineY, int row) {
+	protected void drawSelection(GuiGraphics graphics, String line, int lineY, int row) {
 		if (!this.isFocused())
 			return;
 		if (!this.selection.isRowSelected(row))
@@ -530,13 +530,13 @@ public class SpruceTextAreaWidget extends AbstractSpruceTextInputWidget {
 	/**
 	 * Draws the cursor.
 	 *
-	 * @param c_sedilmty the c_sedilmty
+	 * @param graphics the graphics
 	 */
-	protected void drawCursor(C_sedilmty c_sedilmty) {
+	protected void drawCursor(GuiGraphics graphics) {
 		if (!this.isFocused())
 			return;
 		if (this.lines.isEmpty()) {
-			c_sedilmty.method_27535(this.textRenderer, Text.literal("_"), this.getX(), this.getY() + 4, ColorUtil.TEXT_COLOR);
+			graphics.drawShadowedText(this.textRenderer, Text.literal("_"), this.getX(), this.getY() + 4, ColorUtil.TEXT_COLOR);
 			return;
 		}
 
@@ -548,9 +548,9 @@ public class SpruceTextAreaWidget extends AbstractSpruceTextInputWidget {
 		int cursorY = this.getY() + 4 + actualRow * this.textRenderer.fontHeight;
 
 		if (this.cursor.row < this.lines.size() - 1 || this.cursor.column < cursorLine.length() || this.doesLineOccupyFullSpace(cursorLine))
-			c_sedilmty.method_25294(cursorX - 1, cursorY - 1, cursorX, cursorY + 9, ColorUtil.TEXT_COLOR);
+			graphics.fill(cursorX - 1, cursorY - 1, cursorX, cursorY + 9, ColorUtil.TEXT_COLOR);
 		else
-			c_sedilmty.method_25303(this.textRenderer, "_", cursorX, cursorY, ColorUtil.TEXT_COLOR);
+			graphics.drawShadowedText(this.textRenderer, "_", cursorX, cursorY, ColorUtil.TEXT_COLOR);
 	}
 
 	/**

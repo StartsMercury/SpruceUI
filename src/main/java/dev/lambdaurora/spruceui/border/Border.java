@@ -10,7 +10,7 @@
 package dev.lambdaurora.spruceui.border;
 
 import dev.lambdaurora.spruceui.widget.SpruceWidget;
-import net.minecraft.unmapped.C_sedilmty;
+import net.minecraft.client.gui.GuiGraphics;
 
 /**
  * Represents a border to draw around a widget.
@@ -20,7 +20,7 @@ import net.minecraft.unmapped.C_sedilmty;
  * @since 2.0.0
  */
 public interface Border {
-	void render(C_sedilmty c_sedilmty, SpruceWidget widget, int mouseX, int mouseY, float delta);
+	void render(GuiGraphics graphics, SpruceWidget widget, int mouseX, int mouseY, float delta);
 
 	/**
 	 * Returns the thickness of the border.

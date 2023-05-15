@@ -10,8 +10,8 @@
 package dev.lambdaurora.spruceui.widget;
 
 import dev.lambdaurora.spruceui.Position;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.text.Text;
-import net.minecraft.unmapped.C_sedilmty;
 
 public class SpruceIconButtonWidget extends AbstractSpruceIconButtonWidget {
 	public SpruceIconButtonWidget(Position position, int width, int height, Text message, PressAction action) {
@@ -23,7 +23,7 @@ public class SpruceIconButtonWidget extends AbstractSpruceIconButtonWidget {
 	 *
 	 * @return the x-offset the icon creates
 	 */
-	protected int renderIcon(C_sedilmty c_sedilmty, int mouseX, int mouseY, float delta) {
+	protected int renderIcon(GuiGraphics graphics, int mouseX, int mouseY, float delta) {
 		return 0;
 	}
 }

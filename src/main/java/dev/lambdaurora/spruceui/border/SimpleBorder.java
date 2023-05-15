@@ -16,8 +16,8 @@ import com.mojang.blaze3d.vertex.VertexFormat;
 import com.mojang.blaze3d.vertex.VertexFormats;
 import dev.lambdaurora.spruceui.util.ColorUtil;
 import dev.lambdaurora.spruceui.widget.SpruceWidget;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.render.*;
-import net.minecraft.unmapped.C_sedilmty;
 
 import java.util.Arrays;
 
@@ -56,7 +56,7 @@ public final class SimpleBorder implements Border {
 	}
 
 	@Override
-	public void render(C_sedilmty c_sedilmty, SpruceWidget widget, int mouseX, int mouseY, float delta) {
+	public void render(GuiGraphics graphics, SpruceWidget widget, int mouseX, int mouseY, float delta) {
 
 		var tessellator = Tessellator.getInstance();
 		var buffer = tessellator.getBufferBuilder();

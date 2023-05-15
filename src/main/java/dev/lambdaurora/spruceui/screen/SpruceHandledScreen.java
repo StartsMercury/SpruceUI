@@ -17,12 +17,12 @@ import dev.lambdaurora.spruceui.widget.SpruceElement;
 import dev.lambdaurora.spruceui.widget.SpruceWidget;
 import net.minecraft.client.gui.Drawable;
 import net.minecraft.client.gui.Element;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.Text;
-import net.minecraft.unmapped.C_sedilmty;
 import org.lwjgl.glfw.GLFW;
 
 import java.util.function.BooleanSupplier;
@@ -114,22 +114,22 @@ public abstract class SpruceHandledScreen<T extends ScreenHandler> extends Handl
 	/* Render */
 
 	@Override
-	public void render(C_sedilmty c_sedilmty, int mouseX, int mouseY, float delta) {
+	public void render(GuiGraphics graphics, int mouseX, int mouseY, float delta) {
 		ScissorManager.pushScaleFactor(this.scaleFactor);
-		super.render(c_sedilmty, mouseX, mouseY, delta);
-		this.renderWidgets(c_sedilmty, mouseX, mouseY, delta);
-		this.renderTitle(c_sedilmty, mouseX, mouseY, delta);
-		Tooltip.renderAll(this, c_sedilmty);
+		super.render(graphics, mouseX, mouseY, delta);
+		this.renderWidgets(graphics, mouseX, mouseY, delta);
+		this.renderTitle(graphics, mouseX, mouseY, delta);
+		Tooltip.renderAll(this, graphics);
 		ScissorManager.popScaleFactor();
 	}
 
-	public void renderTitle(C_sedilmty c_sedilmty, int mouseX, int mouseY, float delta) {
+	public void renderTitle(GuiGraphics graphics, int mouseX, int mouseY, float delta) {
 	}
 
-	public void renderWidgets(C_sedilmty c_sedilmty, int mouseX, int mouseY, float delta) {
+	public void renderWidgets(GuiGraphics graphics, int mouseX, int mouseY, float delta) {
 		for (var element : this.children()) {
 			if (element instanceof Drawable drawable)
-				drawable.render(c_sedilmty, mouseX, mouseY, delta);
+				drawable.render(graphics, mouseX, mouseY, delta);
 		}
 	}
 }

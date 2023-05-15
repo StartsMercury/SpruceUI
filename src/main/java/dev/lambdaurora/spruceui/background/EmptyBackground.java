@@ -10,7 +10,7 @@
 package dev.lambdaurora.spruceui.background;
 
 import dev.lambdaurora.spruceui.widget.SpruceWidget;
-import net.minecraft.unmapped.C_sedilmty;
+import net.minecraft.client.gui.GuiGraphics;
 
 /**
  * Represents an empty background.
@@ -26,7 +26,7 @@ public final class EmptyBackground implements Background {
 	}
 
 	@Override
-	public void render(C_sedilmty c_sedilmty, SpruceWidget widget, int vOffset, int mouseX, int mouseY, float delta) {
+	public void render(GuiGraphics graphics, SpruceWidget widget, int vOffset, int mouseX, int mouseY, float delta) {
 	}
 
 	@Override

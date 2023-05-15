@@ -12,10 +12,10 @@ package dev.lambdaurora.spruceui;
 import com.google.common.collect.Queues;
 import dev.lambdaurora.spruceui.widget.SpruceWidget;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.text.OrderedText;
 import net.minecraft.text.StringVisitable;
-import net.minecraft.unmapped.C_sedilmty;
 import org.jetbrains.annotations.ApiStatus;
 
 import java.util.List;
@@ -86,10 +86,10 @@ public class Tooltip implements SprucePositioned {
 	 * Renders the tooltip.
 	 *
 	 * @param screen the screen on which the tooltip is rendered
-	 * @param c_sedilmty the c_sedilmty
+	 * @param graphics the graphics
 	 */
-	public void render(Screen screen, C_sedilmty c_sedilmty) {
-		c_sedilmty.method_51447(MinecraftClient.getInstance().textRenderer, this.tooltip, this.x, this.y);
+	public void render(Screen screen, GuiGraphics graphics) {
+		graphics.drawOrderedTooltip(MinecraftClient.getInstance().textRenderer, this.tooltip, this.x, this.y);
 	}
 
 	/**
@@ -153,16 +153,16 @@ public class Tooltip implements SprucePositioned {
 	 * Renders all the tooltips.
 	 *
 	 * @param screen the screen on which the tooltips are rendered
-	 * @param c_sedilmty the c_sedilmty
+	 * @param graphics the graphics
 	 */
-	public static void renderAll(Screen screen, C_sedilmty c_sedilmty) {
+	public static void renderAll(Screen screen, GuiGraphics graphics) {
 		if (delayed)
 			return;
 		synchronized (TOOLTIPS) {
 			Tooltip tooltip;
 
 			while ((tooltip = TOOLTIPS.poll()) != null)
-				tooltip.render(screen, c_sedilmty);
+				tooltip.render(screen, graphics);
 		}
 	}
 }

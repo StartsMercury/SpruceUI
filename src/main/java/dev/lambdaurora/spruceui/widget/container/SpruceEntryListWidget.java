@@ -28,11 +28,11 @@ import dev.lambdaurora.spruceui.widget.WithBackground;
 import dev.lambdaurora.spruceui.widget.WithBorder;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screen.narration.NarrationMessageBuilder;
 import net.minecraft.client.gui.screen.narration.NarrationPart;
 import net.minecraft.client.render.GameRenderer;
 import net.minecraft.text.Text;
-import net.minecraft.unmapped.C_sedilmty;
 import net.minecraft.util.math.MathHelper;
 import org.jetbrains.annotations.Nullable;
 import org.lwjgl.glfw.GLFW;
@@ -323,12 +323,12 @@ public abstract class SpruceEntryListWidget<E extends SpruceEntryListWidget.Entr
 	/* Rendering */
 
 	@Override
-	protected void renderBackground(C_sedilmty c_sedilmty, int mouseX, int mouseY, float delta) {
-		this.getBackground().render(c_sedilmty, this, 0, mouseX, mouseY, delta);
+	protected void renderBackground(GuiGraphics graphics, int mouseX, int mouseY, float delta) {
+		this.getBackground().render(graphics, this, 0, mouseX, mouseY, delta);
 	}
 
 	@Override
-	protected void renderWidget(C_sedilmty c_sedilmty, int mouseX, int mouseY, float delta) {
+	protected void renderWidget(GuiGraphics graphics, int mouseX, int mouseY, float delta) {
 		int scrollbarPositionX = this.getScrollbarPositionX();
 		int scrollBarEnd = scrollbarPositionX + 6;
 		int left = this.getX();
@@ -337,7 +337,7 @@ public abstract class SpruceEntryListWidget<E extends SpruceEntryListWidget.Entr
 		int bottom = top + this.getHeight();
 
 		ScissorManager.push(this.getX(), this.getY(), this.getWidth(), this.getHeight());
-		this.entries.forEach(e -> e.render(c_sedilmty, mouseX, mouseY, delta));
+		this.entries.forEach(e -> e.render(graphics, mouseX, mouseY, delta));
 		ScissorManager.pop();
 
 		var tessellator = Tessellator.getInstance();
@@ -387,7 +387,7 @@ public abstract class SpruceEntryListWidget<E extends SpruceEntryListWidget.Entr
 			this.renderScrollbar(tessellator, buffer, scrollbarPositionX, scrollBarEnd, scrollbarY, scrollbarHeight);
 		}
 
-		this.getBorder().render(c_sedilmty, this, mouseX, mouseY, delta);
+		this.getBorder().render(graphics, this, mouseX, mouseY, delta);
 
 		RenderSystem.disableBlend();
 	}

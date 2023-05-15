@@ -11,8 +11,8 @@ package dev.lambdaurora.spruceui.hud.component;
 
 import dev.lambdaurora.spruceui.hud.HudComponent;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.text.Text;
-import net.minecraft.unmapped.C_sedilmty;
 import net.minecraft.util.Identifier;
 
 /**
@@ -75,7 +75,7 @@ public class TextHudComponent extends HudComponent {
 	}
 
 	@Override
-	public void render(C_sedilmty c_sedilmty, float tickDelta) {
-		c_sedilmty.method_27535(client.textRenderer, this.text, this.x, this.y, this.color);
+	public void render(GuiGraphics graphics, float tickDelta) {
+		graphics.drawShadowedText(client.textRenderer, this.text, this.x, this.y, this.color);
 	}
 }

@@ -18,8 +18,8 @@ import dev.lambdaurora.spruceui.util.ColorUtil;
 import dev.lambdaurora.spruceui.widget.AbstractSpruceWidget;
 import dev.lambdaurora.spruceui.widget.WithBackground;
 import dev.lambdaurora.spruceui.widget.WithBorder;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.text.Text;
-import net.minecraft.unmapped.C_sedilmty;
 
 /**
  * Represents a text input widget.
@@ -171,13 +171,13 @@ public abstract class AbstractSpruceTextInputWidget extends AbstractSpruceWidget
 	/* Rendering */
 
 	@Override
-	protected void renderWidget(C_sedilmty c_sedilmty, int mouseX, int mouseY, float delta) {
-		this.getBorder().render(c_sedilmty, this, mouseX, mouseY, delta);
+	protected void renderWidget(GuiGraphics graphics, int mouseX, int mouseY, float delta) {
+		this.getBorder().render(graphics, this, mouseX, mouseY, delta);
 	}
 
 	@Override
-	protected void renderBackground(C_sedilmty c_sedilmty, int mouseX, int mouseY, float delta) {
-		this.getBackground().render(c_sedilmty, this, 0, mouseX, mouseY, delta);
+	protected void renderBackground(GuiGraphics graphics, int mouseX, int mouseY, float delta) {
+		this.getBackground().render(graphics, this, 0, mouseX, mouseY, delta);
 	}
 
 	/* Narration */

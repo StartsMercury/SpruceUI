@@ -12,12 +12,12 @@ package dev.lambdaurora.spruceui.widget;
 import dev.lambdaurora.spruceui.Position;
 import dev.lambdaurora.spruceui.navigation.NavigationDirection;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screen.narration.NarrationMessageBuilder;
 import net.minecraft.client.gui.screen.narration.NarrationPart;
 import net.minecraft.client.sound.PositionedSoundInstance;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
-import net.minecraft.unmapped.C_sedilmty;
 import net.minecraft.util.Util;
 import org.jetbrains.annotations.Nullable;
 
@@ -249,7 +249,7 @@ public abstract class AbstractSpruceWidget implements SpruceWidget {
 	/* Rendering */
 
 	@Override
-	public void render(C_sedilmty c_sedilmty, int mouseX, int mouseY, float delta) {
+	public void render(GuiGraphics graphics, int mouseX, int mouseY, float delta) {
 		if (this.isVisible()) {
 			this.hovered = mouseX >= this.getX() && mouseY >= this.getY()
 					&& mouseX < this.getX() + this.getWidth() && mouseY < this.getY() + this.getHeight();
@@ -260,8 +260,8 @@ public abstract class AbstractSpruceWidget implements SpruceWidget {
 				}
 			}
 
-			this.renderBackground(c_sedilmty, mouseX, mouseY, delta);
-			this.renderWidget(c_sedilmty, mouseX, mouseY, delta);
+			this.renderBackground(graphics, mouseX, mouseY, delta);
+			this.renderWidget(graphics, mouseX, mouseY, delta);
 
 			this.wasHovered = this.isMouseHovered();
 		} else {
@@ -272,22 +272,22 @@ public abstract class AbstractSpruceWidget implements SpruceWidget {
 	/**
 	 * Renders the widget.
 	 *
-	 * @param c_sedilmty the matrix stack
+	 * @param graphics the matrix stack
 	 * @param mouseX the mouse X-coordinate
 	 * @param mouseY the mouse Y-coordinate
 	 * @param delta the tick delta
 	 */
-	protected abstract void renderWidget(C_sedilmty c_sedilmty, int mouseX, int mouseY, float delta);
+	protected abstract void renderWidget(GuiGraphics graphics, int mouseX, int mouseY, float delta);
 
 	/**
 	 * Renders the background of the widget.
 	 *
-	 * @param c_sedilmty the matrix stack
+	 * @param graphics the matrix stack
 	 * @param mouseX the mouse X-coordinate
 	 * @param mouseY the mouse Y-coordinate
 	 * @param delta the tick delta
 	 */
-	protected void renderBackground(C_sedilmty c_sedilmty, int mouseX, int mouseY, float delta) {
+	protected void renderBackground(GuiGraphics graphics, int mouseX, int mouseY, float delta) {
 	}
 
 	/* Sound */
