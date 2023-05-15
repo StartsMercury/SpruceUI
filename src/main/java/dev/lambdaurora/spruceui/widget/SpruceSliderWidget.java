@@ -13,9 +13,9 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import dev.lambdaurora.spruceui.Position;
 import dev.lambdaurora.spruceui.Tooltipable;
 import dev.lambdaurora.spruceui.navigation.NavigationDirection;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.widget.ClickableWidget;
 import net.minecraft.text.Text;
-import net.minecraft.unmapped.C_sedilmty;
 import net.minecraft.util.math.MathHelper;
 
 import java.util.function.Consumer;
@@ -165,17 +165,17 @@ public class SpruceSliderWidget extends AbstractSpruceButtonWidget implements To
 	}
 
 	@Override
-	protected void renderButton(C_sedilmty c_sedilmty, int mouseX, int mouseY, float delta) {
+	protected void renderButton(GuiGraphics graphics, int mouseX, int mouseY, float delta) {
 		RenderSystem.setShaderColor(1.f, 1.f, 1.f, 1.f);
 		int vOffset = (this.isFocusedOrHovered() ? 2 : 1) * 20;
-		c_sedilmty.method_25302(ClickableWidget.WIDGETS_TEXTURE, this.getX() + (int) (this.value * (double) (this.getWidth() - 8)), this.getY(), 0, 46 + vOffset, 4, 20);
-		c_sedilmty.method_25302(ClickableWidget.WIDGETS_TEXTURE, this.getX() + (int) (this.value * (double) (this.getWidth() - 8)) + 4, this.getY(), 196, 46 + vOffset, 4, 20);
+		graphics.drawTexture(ClickableWidget.WIDGETS_TEXTURE, this.getX() + (int) (this.value * (double) (this.getWidth() - 8)), this.getY(), 0, 46 + vOffset, 4, 20);
+		graphics.drawTexture(ClickableWidget.WIDGETS_TEXTURE, this.getX() + (int) (this.value * (double) (this.getWidth() - 8)) + 4, this.getY(), 196, 46 + vOffset, 4, 20);
 
 		if (!this.isMouseHovered() && this.inUse) {
 			this.inUse = false;
 		}
 
-		super.renderButton(c_sedilmty, mouseX, mouseY, delta);
+		super.renderButton(graphics, mouseX, mouseY, delta);
 	}
 
 	/* Narration */

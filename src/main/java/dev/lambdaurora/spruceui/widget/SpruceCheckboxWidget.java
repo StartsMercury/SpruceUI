@@ -12,9 +12,9 @@ package dev.lambdaurora.spruceui.widget;
 import com.mojang.blaze3d.platform.GlStateManager;
 import com.mojang.blaze3d.systems.RenderSystem;
 import dev.lambdaurora.spruceui.Position;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.text.OrderedText;
 import net.minecraft.text.Text;
-import net.minecraft.unmapped.C_sedilmty;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Language;
 import net.minecraft.util.math.MathHelper;
@@ -86,7 +86,7 @@ public class SpruceCheckboxWidget extends AbstractSpruceBooleanButtonWidget {
 	/* Rendering */
 
 	@Override
-	protected void renderButton(C_sedilmty c_sedilmty, int mouseX, int mouseY, float delta) {
+	protected void renderButton(GuiGraphics graphics, int mouseX, int mouseY, float delta) {
 		RenderSystem.enableDepthTest();
 		RenderSystem.enableBlend();
 		RenderSystem.defaultBlendFunc();
@@ -94,28 +94,28 @@ public class SpruceCheckboxWidget extends AbstractSpruceBooleanButtonWidget {
 		if (this.getValue()) {
 			if (this.colored)
 				RenderSystem.setShaderColor(0.f, 1.f, 0.f, this.alpha);
-			c_sedilmty.method_25290(TEXTURE, this.getX(), this.getY(), 0.f, 40.f, this.getHeight(), this.getHeight(), 64, 64);
+			graphics.drawTexture(TEXTURE, this.getX(), this.getY(), 0.f, 40.f, this.getHeight(), this.getHeight(), 64, 64);
 		} else if (this.showCross) {
 			if (this.colored)
 				RenderSystem.setShaderColor(1.f, 0.f, 0.f, this.alpha);
-			c_sedilmty.method_25290(TEXTURE, this.getX(), this.getY(), 0.f, 20.f, this.getHeight(), this.getHeight(), 64, 64);
+			graphics.drawTexture(TEXTURE, this.getX(), this.getY(), 0.f, 20.f, this.getHeight(), this.getHeight(), 64, 64);
 		}
 
 		if (this.showMessage) {
 			OrderedText message = Language.getInstance().reorder(this.client.textRenderer.trimToWidth(this.getMessage(), this.getWidth() - this.getHeight() - 4));
-			c_sedilmty.method_35720(this.client.textRenderer, message, this.getX() + this.getHeight() + 4, this.getY() + (this.getHeight() - 8) / 2,
+			graphics.drawShadowedText(this.client.textRenderer, message, this.getX() + this.getHeight() + 4, this.getY() + (this.getHeight() - 8) / 2,
 					14737632 | MathHelper.ceil(this.alpha * 255.0F) << 24);
 		}
 	}
 
 	@Override
-	protected void renderBackground(C_sedilmty c_sedilmty, int mouseX, int mouseY, float delta) {
+	protected void renderBackground(GuiGraphics graphics, int mouseX, int mouseY, float delta) {
 		RenderSystem.enableDepthTest();
 		RenderSystem.setShaderColor(1.f, 1.f, 1.f, this.alpha);
 		RenderSystem.enableBlend();
 		RenderSystem.defaultBlendFunc();
 		RenderSystem.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);
-		c_sedilmty.method_25290(TEXTURE, this.getX(), this.getY(), this.isFocusedOrHovered() ? 20.f : 0.f, 0.f, this.getHeight(), this.getHeight(), 64, 64);
+		graphics.drawTexture(TEXTURE, this.getX(), this.getY(), this.isFocusedOrHovered() ? 20.f : 0.f, 0.f, this.getHeight(), this.getHeight(), 64, 64);
 	}
 
 	/* Narration */

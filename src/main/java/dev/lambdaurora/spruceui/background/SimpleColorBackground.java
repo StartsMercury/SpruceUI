@@ -11,7 +11,7 @@ package dev.lambdaurora.spruceui.background;
 
 import dev.lambdaurora.spruceui.util.ColorUtil;
 import dev.lambdaurora.spruceui.widget.SpruceWidget;
-import net.minecraft.unmapped.C_sedilmty;
+import net.minecraft.client.gui.GuiGraphics;
 
 public class SimpleColorBackground implements Background {
 	private final int color;
@@ -25,10 +25,10 @@ public class SimpleColorBackground implements Background {
 	}
 
 	@Override
-	public void render(C_sedilmty c_sedilmty, SpruceWidget widget, int vOffset, int mouseX, int mouseY, float delta) {
+	public void render(GuiGraphics graphics, SpruceWidget widget, int vOffset, int mouseX, int mouseY, float delta) {
 		int x = widget.getX();
 		int y = widget.getY();
-		c_sedilmty.method_25294(x, y, x + widget.getWidth(), y + widget.getHeight(), this.color);
+		graphics.fill(x, y, x + widget.getWidth(), y + widget.getHeight(), this.color);
 	}
 
 	@Override

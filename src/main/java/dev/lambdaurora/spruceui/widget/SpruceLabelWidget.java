@@ -14,9 +14,9 @@ import dev.lambdaurora.spruceui.Tooltip;
 import dev.lambdaurora.spruceui.Tooltipable;
 import dev.lambdaurora.spruceui.border.Border;
 import dev.lambdaurora.spruceui.border.EmptyBorder;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.text.OrderedText;
 import net.minecraft.text.Text;
-import net.minecraft.unmapped.C_sedilmty;
 import org.jetbrains.annotations.Nullable;
 import org.lwjgl.glfw.GLFW;
 
@@ -170,16 +170,16 @@ public class SpruceLabelWidget extends AbstractSpruceWidget implements Tooltipab
 	/* Rendering */
 
 	@Override
-	protected void renderWidget(C_sedilmty c_sedilmty, int mouseX, int mouseY, float delta) {
+	protected void renderWidget(GuiGraphics graphics, int mouseX, int mouseY, float delta) {
 		int y = this.getY() + 2;
 		for (var it = this.lines.iterator(); it.hasNext(); y += 9) {
 			var line = it.next();
 			int x = this.centered ? (this.getInnerX() + this.maxWidth / 2) - this.client.textRenderer.getWidth(line) / 2
 					: this.getInnerX();
-			c_sedilmty.method_35720(this.client.textRenderer, line, x, y, 10526880);
+			graphics.drawShadowedText(this.client.textRenderer, line, x, y, 10526880);
 		}
 
-		this.getBorder().render(c_sedilmty, this, mouseX, mouseY, delta);
+		this.getBorder().render(graphics, this, mouseX, mouseY, delta);
 
 		if (this.tooltip != null) {
 			if (!this.tooltip.getString().isEmpty()) {

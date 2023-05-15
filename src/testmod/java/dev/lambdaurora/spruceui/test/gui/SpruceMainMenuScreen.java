@@ -13,9 +13,9 @@ import dev.lambdaurora.spruceui.screen.SpruceScreen;
 import dev.lambdaurora.spruceui.Position;
 import dev.lambdaurora.spruceui.SpruceTexts;
 import dev.lambdaurora.spruceui.widget.SpruceButtonWidget;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.text.Text;
-import net.minecraft.unmapped.C_sedilmty;
 import org.jetbrains.annotations.Nullable;
 
 /**
@@ -49,7 +49,7 @@ public class SpruceMainMenuScreen extends SpruceScreen {
     }
 
     @Override
-    public void renderTitle(C_sedilmty c_sedilmty, int mouseX, int mouseY, float delta) {
-        c_sedilmty.method_27534(this.textRenderer, this.title, this.width / 2, 8, 16777215);
+    public void renderTitle(GuiGraphics graphics, int mouseX, int mouseY, float delta) {
+        graphics.drawCenteredShadowedText(this.textRenderer, this.title, this.width / 2, 8, 16777215);
     }
 }

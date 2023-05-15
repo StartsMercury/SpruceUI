@@ -10,7 +10,7 @@
 package dev.lambdaurora.spruceui.background;
 
 import dev.lambdaurora.spruceui.widget.SpruceWidget;
-import net.minecraft.unmapped.C_sedilmty;
+import net.minecraft.client.gui.GuiGraphics;
 
 /**
  * Represents a background which can be rendered on a widget.
@@ -20,5 +20,5 @@ import net.minecraft.unmapped.C_sedilmty;
  * @since 2.0.0
  */
 public interface Background {
-	void render(C_sedilmty c_sedilmty, SpruceWidget widget, int vOffset, int mouseX, int mouseY, float delta);
+	void render(GuiGraphics graphics, SpruceWidget widget, int vOffset, int mouseX, int mouseY, float delta);
 }

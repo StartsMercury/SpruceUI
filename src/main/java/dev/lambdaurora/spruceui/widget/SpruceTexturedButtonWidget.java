@@ -11,8 +11,8 @@ package dev.lambdaurora.spruceui.widget;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import dev.lambdaurora.spruceui.Position;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.text.Text;
-import net.minecraft.unmapped.C_sedilmty;
 import net.minecraft.util.Identifier;
 
 /**
@@ -61,13 +61,13 @@ public class SpruceTexturedButtonWidget extends SpruceButtonWidget {
 	/* Rendering */
 
 	@Override
-	protected void renderButton(C_sedilmty c_sedilmty, int mouseX, int mouseY, float delta) {
+	protected void renderButton(GuiGraphics graphics, int mouseX, int mouseY, float delta) {
 		if (this.showMessage)
-			super.renderButton(c_sedilmty, mouseX, mouseY, delta);
+			super.renderButton(graphics, mouseX, mouseY, delta);
 	}
 
 	@Override
-	protected void renderBackground(C_sedilmty c_sedilmty, int mouseX, int mouseY, float delta) {
+	protected void renderBackground(GuiGraphics graphics, int mouseX, int mouseY, float delta) {
 		int v = this.v;
 		if (this.isFocusedOrHovered()) {
 			v += this.hoveredVOffset;
@@ -75,7 +75,7 @@ public class SpruceTexturedButtonWidget extends SpruceButtonWidget {
 
 		RenderSystem.setShaderColor(1.f, 1.f, 1.f, this.getAlpha());
 		RenderSystem.enableDepthTest();
-		c_sedilmty.method_25291(this.texture,
+		graphics.drawTexture(this.texture,
 				this.getX(), this.getY(),
 				0,
 				this.u, v,
