@@ -3,7 +3,7 @@
   "id": "spruceui",
   "name": "SpruceUI",
   "version": "${version}",
-  "description": "Just a GUI library. (1.20-pre7 Fork by StartsMercury)",
+  "description": "Just a GUI library. (1.20-rc1 Fork by StartsMercury)",
   "authors": [
     "LambdAurora"
   ],
